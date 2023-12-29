@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(32, 23, 23, 0.833);
+  font-weight: 400;
+}
+
+.main {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.main .main-para1, .main .main-para2 {
+  font-weight: 900;
+}
+.main .main-para1:hover, .main .main-para2:hover {
+  background-color: rgb(255, 126, 126);
+}
+.main .main-para2:hover {
+  background-color: red;
+}
+@media (max-width: 800px) {
+  .main {
+    flex-direction: row;
+  }
+}
+
+.light {
+  background-color: rgba(255, 255, 255, 0.833);
+  color: black;
+}/*# sourceMappingURL=main.css.map */

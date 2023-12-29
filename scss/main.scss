@@ -1,0 +1,64 @@
+@import "./resets";
+@import "./variables";
+
+@function weights($weight-name) {
+  @return map-get($fontweights, $weight-name);
+}
+@mixin theme($lighttheme: true) {
+  @if $lighttheme {
+    background-color: lighten($background, 100%);
+    color: darken($textcolor, 100%);
+  }
+}
+@mixin flexcenter($direction, $gap) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+@mixin flexrow {
+  flex-direction: row;
+}
+body {
+  background-color: $background;
+  font-weight: weights(regular);
+}
+.main {
+  width: 80%;
+  margin: auto;
+
+  @include flexcenter(column, 2rem);
+  #{&}-para1 {
+    font-weight: weights(bold);
+    // color: $textcolor;
+
+    &:hover {
+      background-color: rgb(255, 126, 126);
+    }
+  }
+
+  #{&}-para2 {
+    @extend .main-para1;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+  @include mobile {
+    @include flexrow;
+  }
+}
+
+.light {
+  @include theme($lighttheme: true);
+}
+map-get {
+  $fontweights: "regular";
+}
